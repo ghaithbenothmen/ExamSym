@@ -1,0 +1,65 @@
+{#  {{ form(f) }}  #}
+
+{# {{ form(form) }} #}
+<!-- afiche toute la formulaire-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Ajouter livre</title>
+
+		<!-- Add Bootstrap CSS -->
+		<link
+		rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+		<!-- Add any other CSS or stylesheets you need -->
+		<link rel="stylesheet" href="path-to-your-custom.css">
+	</head>
+	<body>
+		<div class="container">
+			<h1>Ajouter livre</h1>
+
+			{{ form_start(f) }}
+			
+
+			<div class="form-group">
+				{{ form_label(f.joueur, "Title:", {'label_attr': {'class': 'control-label'}}) }}
+				{{ form_widget(f.joueur, {'attr': {'class': 'form-control'}}) }}
+			</div>
+
+			<div class="form-group">
+				{{ form_label(f.noteVote, "Category:", {'label_attr': {'class': 'control-label'}}) }}
+				{{ form_widget(f.noteVote, {'attr': {'class': 'form-control'}}) }}
+			</div>
+
+			{# <div class="form-group">
+				{{ form_label(f.date, "Publication Date:", {'label_attr': {'class': 'control-label'}}) }}
+				<div class="input-group date">
+					{{ form_widget(f.date, {'attr': {'class': 'form-control'}}) }}
+					<div class="input-group-append">
+						<span class="input-group-text">
+							<i class="fas fa-calendar"></i>
+						</span>
+					</div>
+				</div>
+			</div> #}
+
+
+			
+
+
+			<div class="form-group">
+				{{ form_widget(f.vote, {'attr': {'class': 'btn btn-primary'}}) }}
+			</div>
+
+			{{ form_end(f) }}
+		</div>
+
+
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+	</body>
+</html>
