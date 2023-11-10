@@ -18,6 +18,7 @@ class Joueur
     #[ORM\Column(length: 50)]
     private ?string $nom = null;
 
+    
     #[ORM\Column(length: 50)]
     private ?string $equipe = null;
 
@@ -26,6 +27,7 @@ class Joueur
 
     #[ORM\Column]
     private ?float $moyenneVote = null;
+
 
     public function __construct()
     {
@@ -102,4 +104,6 @@ class Joueur
 
         return $this;
     }
+
+    
 }

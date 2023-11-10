@@ -14,6 +14,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Joueur[]    findAll()
  * @method Joueur[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
+
 class JoueurRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
@@ -24,26 +25,25 @@ class JoueurRepository extends ServiceEntityRepository
 
 
     public function showJoveurs(): array
-{
-    return $this->createQueryBuilder('j')
-    ->where('j.equipe=:val')
-    ->setParameter('val', 'Tunisie')
-    ->orderBy('j.nom','ASC')
-    ->setMaxResults(3)
-    ->getQuery()
-    ->execute();
-}
+    {
+        return $this->createQueryBuilder('j')
+            ->where('j.equipe=:val')
+            ->setParameter('val', 'Tunisie')
+            ->orderBy('j.nom', 'ASC')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->execute();
+    }
 
 
-public function getSommeVoteByJoueur($id){
-    $em=$this->getEntityManager();
-    $query=$em->createQuery("SELECT SUM(v.noteVote) AS somme FROM App\Entity\Vote v JOIN v.joueur j WHERE j.id = :id")
-    ->setParameter('id',$id);
-    return $query->getSingleScalarResult();
-
-}
-
-
+    public function getSommeVoteByJoueur($id)
+    {
+        $em = $this->getEntityManager();
+        
+        $query = $em->createQuery("SELECT SUM(v.noteVote) AS somme FROM App\Entity\Vote v JOIN v.joueur j WHERE j.id = :id")
+            ->setParameter('id', $id);
+        return $query->getSingleScalarResult();
+    }
 }
 
 //    /**
@@ -70,4 +70,3 @@ public function getSommeVoteByJoueur($id){
 //            ->getOneOrNullResult()
 //        ;
 //    }
-

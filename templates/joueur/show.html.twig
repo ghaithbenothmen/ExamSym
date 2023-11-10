@@ -31,12 +31,18 @@ p strong {
     
     
 
-    <table border="1">
+    
+    {% if votes is empty %}
+        <h3>pas de vote</h3>
+
+        {% else %}
+        <table border="1">
     <tr>
         <th>Date Vote</th>
         <th>Note Vote</th>
     </tr>
     {% for vote in votes %}
+
     <tr>
 
        <td>{{vote.date |date}}</td> 
@@ -48,5 +54,7 @@ p strong {
     </table>
 
     <h3>La moyenne de vote : {{joueur.moyenneVote}}</h3>
+    {% endif %}
+
 </body>
 </html>

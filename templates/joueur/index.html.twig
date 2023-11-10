@@ -31,7 +31,7 @@
 		}
 	</style>
 	<body>
-		<h1>Liste des livres</h1>
+		<h1>Liste des joueurs</h1>
 
 		<div class="row">
 			<div class="col-12">
@@ -64,7 +64,7 @@
 									<td>
 										<a href="{{ path('app_joueur_details', {'id': j.id}) }}" class="btn btn-info btn-sm" role="button">Show</a>
 {# 										<a href="{{ path('app_joueur_details', {'id': j.id}) }}" class="btn btn-warning btn-sm" role="button">Edit</a> #}
-										<a href="{{ path('app_joueur_delete', {'id': j.id}) }}" class="btn btn-danger btn-sm" role="button">Delete</a>
+										<a href="{{ path('app_joueur_vote', {'id': j.id}) }}" class="btn btn-danger btn-sm" role="button">Voter</a>
 									</td>
 
 									{# <td><a class="btn btn-primary" href="{{ path('jDetails', {'id': j.ref}) }}">Détails</a></td> #}
